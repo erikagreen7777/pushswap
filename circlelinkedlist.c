@@ -1,3 +1,5 @@
+//tutorial found at: https://www.youtube.com/watch?v=_dENvjMxHEY
+
 #include <stdio.h>
 #include <stdlib.h>
 
