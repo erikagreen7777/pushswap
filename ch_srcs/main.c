@@ -2,12 +2,19 @@
 
 int main(int argc, char **argv)
 {
-	
-	// if (argc != 2)
-	// 	ft_printf("argc != 2 (argv[0]: %s): KO\n", argv[0]);
-	// else 
-	printf("checker argc:%d\targv[1]; %s\n", argc, argv[1]);
+	char **str;
+	str = NULL;
+	int i;
+	i = 0;
+	if (argc > 0)
+		;
 
+	str = ft_strsplit(argv[1], ' ');
+	while (str[i])
+	{
+		printf("str[%d]: %s\n", i, str[i]);
+		i++;
+	}
 	return (0);
 }
 
@@ -20,3 +27,5 @@ int main(int argc, char **argv)
 "[pb, ra, pb, ra, sa, ra, pa, pa]". The program should
 display "OK".
 */
+
+//tell zsh to do parameter expansion

@@ -2,7 +2,18 @@
 
 int main(int argc, char **argv)
 {
+	char **str;
+	str = NULL;
+	int i;
+	i = 0;
+	if (argc > 0)
+		;
 
-	printf("push_swap argc: %d\targv[1]: %s\n", argc, argv[1]);
-	return (argc);
+	str = ft_strsplit(argv[1], ' ');
+	while (str[i])
+	{
+		printf("str[%d]: %s\n", i, str[i]);
+		i++;
+	}
+	return (0);
 }
