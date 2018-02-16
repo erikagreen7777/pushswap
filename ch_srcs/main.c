@@ -1,6 +1,21 @@
 #include "../pushswap.h"
 
-int main(int argc, char **argv)
+void	parse_str_argv(int argc, char **argv)
+{
+	int i;
+	int	temp[argc - 1];
+	char **str;
+
+	str = ft_strsplit(argv[1], ' ');
+	i = 0;
+	while (str[i])
+	{	
+		temp[i] = ft_atoi(str[i]);
+		printf("temp[%d]: %d\n", i, temp[i]);
+		i++;
+	}
+}
+void	parse_input(int argc, char **argv)
 {
 	int	temp[argc - 1];
 	char **str;
@@ -9,20 +24,9 @@ int main(int argc, char **argv)
 	
 	str = NULL;
 	j = 0;
-	if (argc > 0)
-		;
-	printf("argc: %d\n", argc);
+	// printf("argc: %d\n", argc);
 	if (argc == 2)
-	{
-		str = ft_strsplit(argv[1], ' ');
-		i = 0;
-		while (str[i])
-		{	
-			temp[i] = ft_atoi(str[i]);
-			printf("temp[%d]: %d\n", i, temp[i]);
-			i++;
-		}
-	}
+		parse_str_argv(argc, argv);
 	else if (argc > 2)
 	{
 		i = 1;
@@ -40,7 +44,14 @@ int main(int argc, char **argv)
 		}
 	}
 
+}
 
+int main(int argc, char **argv)
+{
+	if (argc > 0)
+		parse_input(argc, argv);
+	else
+		ft_putchar('\n');
 
 	return (0);
 }
