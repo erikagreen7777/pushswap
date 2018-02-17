@@ -1,9 +1,10 @@
 #include "../pushswap.h"
 
-void	parse_str_argv(int argc, char **argv)
+int		*parse_str_argv(int argc, char **argv)
 {
 	int i;
 	int	temp[argc - 1];
+	int *ret;
 	char **str;
 
 	str = ft_strsplit(argv[1], ' ');
@@ -14,11 +15,15 @@ void	parse_str_argv(int argc, char **argv)
 		printf("temp[%d]: %d\n", i, temp[i]);
 		i++;
 	}
+	ret = temp;
+	return (ret);
+
 }
-void	parse_input(int argc, char **argv)
+int		*parse_input(int argc, char **argv)
 {
 	int	temp[argc - 1];
 	char **str;
+	int *ret;
 	int i;
 	int j;
 	
@@ -43,13 +48,19 @@ void	parse_input(int argc, char **argv)
 			i++;
 		}
 	}
-
+	ret = temp;
+	return (ret);
 }
 
 int main(int argc, char **argv)
 {
-	if (argc > 0)
-		parse_input(argc, argv);
+	int 	*stacka;
+
+	
+	if (argc == 2)
+		stacka = parse_str_argv(argc, argv);
+	else if (argc > 0)	
+		stacka = parse_input(argc, argv);
 	else
 		ft_putchar('\n');
 
